@@ -13,6 +13,9 @@ export default function NewsStack() {
       screenOptions={{
         title: "최신 뉴스",
         headerTitleAlign: "center",
+        headerTitleStyle: {
+          fontWeight: "bold"
+        },
         headerRight: () => <Flag />
       }}
       initialRouteName="NewsIndex"

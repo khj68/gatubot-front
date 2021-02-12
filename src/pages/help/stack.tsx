@@ -12,6 +12,9 @@ export default function HelpStack() {
       screenOptions={{
         title: "안내",
         headerTitleAlign: "center",
+        headerTitleStyle: {
+          fontWeight: "bold"
+        },
         headerRight: () => <Flag />
       }}
       initialRouteName="HelpIndex"

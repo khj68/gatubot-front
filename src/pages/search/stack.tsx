@@ -12,6 +12,9 @@ export default function SearchStack() {
       screenOptions={{
         title: "주식 검색",
         headerTitleAlign: "center",
+        headerTitleStyle: {
+          fontWeight: "bold"
+        },
         headerRight: () => <Flag />
       }}
       initialRouteName="SearchIndex"
