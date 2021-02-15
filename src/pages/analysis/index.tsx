@@ -35,7 +35,7 @@ export default function AnalysisIndexScreen(props: any) {
     {revalidateOnFocus: false});
   
   const filter = () => {
-    return JSON.parse(data.stocks).filter((value: any) => value.name.includes(query));
+    return data.stock.filter((value: any) => value.name.includes(query));
   }
 
   const handlePress = (stock: any) => () => {

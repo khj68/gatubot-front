@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Text } from 'react-native';
 import styled from 'styled-components/native';
+import { toSecondDecimal } from '../../common/value/function';
 
 const RootView = styled.View`
   align-items: center;
@@ -44,6 +45,10 @@ const BodyText = styled.Text`
 `;
 
 export default function SearchTable(props: any) {
+  useEffect(() => {
+    console.log(props.stocks);
+  }, [props.stocks])
+  
   return(
     <RootView>
       <TableView>
@@ -75,19 +80,19 @@ export default function SearchTable(props: any) {
             <BodyText>{stock.name}</BodyText>
           </Body>
           <Body>
-            <BodyText>주가</BodyText>
+            <BodyText>{stock.share}</BodyText>
           </Body>
           <Body>
-            <BodyText>적정주가</BodyText>
+            <BodyText>{stock.rim}</BodyText>
           </Body>
           <Body>
-            <BodyText>PER</BodyText>
+            <BodyText>{toSecondDecimal(stock.per)}</BodyText>
           </Body>
           <Body>
-            <BodyText>PBR</BodyText>
+            <BodyText>{toSecondDecimal(stock.pbr)}</BodyText>
           </Body>
           <Body>
-            <BodyText>ROE</BodyText>
+            <BodyText>{stock.roe}</BodyText>
           </Body>
           <Body>
             <BodyText>{stock.debt}</BodyText>

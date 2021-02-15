@@ -8,6 +8,7 @@ import axios from "axios";
 import { apiUrl } from '../../component/common/value/variable';
 import SearchTable from '../../component/layout/search/table';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Loading from '../../component/layout/app/loading';
 
 const RootView = styled.View`
   align-items: center;
@@ -91,12 +92,19 @@ export default function SearchIndexScreen() {
   const [eps, setEps] = useState("");
   const [deb, setDeb] = useState("");
   const [stocks, setStocks] = useState([]);
+  const [loading, setLoading] = useState(false);
   
   const handleSearch = () => {
+    setLoading(true);
     setIsSearch(false);
     axios.get(`${apiUrl}/dev/stock/sort?roe=${roe}&eps=${eps}&deb=${deb}`)
-      .then((res: any) => setStocks(JSON.parse(res.data.stocks)));
+      .then((res: any) => {
+        setStocks(res.data.stocks);
+        setLoading(false);
+      });
   }
+
+  if (loading) return <Loading />
   
   return (
     <RootView>

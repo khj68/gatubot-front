@@ -53,7 +53,7 @@ export default function NewsIndexScreen(props: any) {
   return (
     <RootView>
       <ScrollView contentContainerStyle={{ width: "85%", alignItems: "center" }}>
-          { JSON.parse(data.news).map((value: any) => 
+          { data.news.map((value: any) => 
             <TitleBtn 
               onPress={() => props.navigation.navigate("WebView", {uri: value.href})}
               key={value.href}

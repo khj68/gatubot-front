@@ -38,7 +38,7 @@ export default function App() {
                 justifyContent: 'center'
               },
             }}
-            initialRouteName="News"
+            initialRouteName="뉴스"
           >
             <Tab.Screen name="뉴스" component={NewsStack} />
             <Tab.Screen name="분석" component={AnalysisStack} />
