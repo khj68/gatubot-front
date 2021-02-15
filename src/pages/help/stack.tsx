@@ -7,6 +7,9 @@ import Flag from '../../component/layout/app/flag';
 const Stack = createStackNavigator();
 
 export default function HelpStack() {
+  useEffect(()=> {
+    console.log("HELP")
+  });
   return (
     <Stack.Navigator
       screenOptions={{

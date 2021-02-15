@@ -27,9 +27,7 @@ export default function App() {
       <Suspense fallback={<Loading />}>
         <NavigationContainer>
           <Tab.Navigator
-            // screenOptions={{
-            //   tabBarIcon: () => <></>
-            // }}
+            initialRouteName="NewsStack"
             tabBarOptions={{
               labelStyle: {
                 fontSize: 16,
@@ -38,12 +36,12 @@ export default function App() {
                 justifyContent: 'center'
               },
             }}
-            initialRouteName="뉴스"
+            // lazy={true}
           >
-            <Tab.Screen name="뉴스" component={NewsStack} />
-            <Tab.Screen name="분석" component={AnalysisStack} />
-            <Tab.Screen name="검색" component={SearchStack} />
-            <Tab.Screen name="안내" component={HelpStack} />
+            <Tab.Screen name="NewsStack" component={NewsStack} options={{title: "뉴스"}} />
+            <Tab.Screen name="AnalysisStack" component={AnalysisStack} options={{title: "분석"}}/>
+            <Tab.Screen name="SearchStack" component={SearchStack} options={{title: "검색"}}/>
+            <Tab.Screen name="HelpStack" component={HelpStack} options={{title: "안내"}}/>
           </Tab.Navigator>
         </NavigationContainer>
       </Suspense>

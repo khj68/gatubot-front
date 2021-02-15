@@ -8,6 +8,9 @@ import WebViewScreen from './webview';
 const Stack = createStackNavigator();
 
 export default function NewsStack() {
+  useEffect(()=> {
+    console.log("NEWS")
+  });
   return (
     <Stack.Navigator
       screenOptions={{

@@ -7,6 +7,9 @@ import Flag from '../../component/layout/app/flag';
 const Stack = createStackNavigator();
 
 export default function SearchStack() {
+  useEffect(()=> {
+    console.log("SEARCH")
+  });
   return (
     <Stack.Navigator
       screenOptions={{

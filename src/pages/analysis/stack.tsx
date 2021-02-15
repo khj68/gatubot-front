@@ -9,6 +9,9 @@ import AnalysisDetailScreen from './detail';
 const Stack = createStackNavigator();
 
 export default function AnalysisStack() {
+  useEffect(()=> {
+    console.log("ANALYSIS")
+  });
   return (
     <Stack.Navigator
       screenOptions={{
