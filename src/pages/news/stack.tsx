@@ -4,15 +4,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 import NewsIndexScreen from '.';
 import Flag from '../../component/layout/app/flag';
 import WebViewScreen from './webview';
+import { Text } from 'react-native';
 
-const Stack = createStackNavigator();
+const NewsStack = createStackNavigator();
 
-export default function NewsStack() {
-  useEffect(()=> {
-    console.log("NEWS")
-  });
+export default function NewsStackScreen({navigation}: any) {
   return (
-    <Stack.Navigator
+    <NewsStack.Navigator
+      initialRouteName="NewsIndex"
       screenOptions={{
         title: "최신 뉴스",
         headerTitleAlign: "center",
@@ -21,10 +20,9 @@ export default function NewsStack() {
         },
         headerRight: () => <Flag />
       }}
-      initialRouteName="NewsIndex"
     >
-      <Stack.Screen name="NewsIndex" component={NewsIndexScreen} />
-      <Stack.Screen name="WebView" component={WebViewScreen} />
-    </Stack.Navigator>
+      <NewsStack.Screen name="NewsIndex" component={NewsIndexScreen} />
+      <NewsStack.Screen name="WebView" component={WebViewScreen} />
+    </NewsStack.Navigator>
   );
 }

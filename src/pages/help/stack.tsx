@@ -4,14 +4,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HelpIndexScreen from '.';
 import Flag from '../../component/layout/app/flag';
 
-const Stack = createStackNavigator();
+const HelpStack = createStackNavigator();
 
-export default function HelpStack() {
-  useEffect(()=> {
-    console.log("HELP")
-  });
+export default function HelpStackScreen({navigation}: any) {
   return (
-    <Stack.Navigator
+    <HelpStack.Navigator
+      initialRouteName="HelpIndex"
       screenOptions={{
         title: "안내",
         headerTitleAlign: "center",
@@ -20,9 +18,8 @@ export default function HelpStack() {
         },
         headerRight: () => <Flag />
       }}
-      initialRouteName="HelpIndex"
     >
-      <Stack.Screen name="HelpIndex" component={HelpIndexScreen} />
-    </Stack.Navigator>
+      <HelpStack.Screen name="HelpIndex" component={HelpIndexScreen} />
+    </HelpStack.Navigator>
   );
 }

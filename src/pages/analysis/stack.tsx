@@ -6,14 +6,12 @@ import { Text } from 'react-native';
 import Flag from '../../component/layout/app/flag';
 import AnalysisDetailScreen from './detail';
 
-const Stack = createStackNavigator();
+const AnalysisStack = createStackNavigator();
 
-export default function AnalysisStack() {
-  useEffect(()=> {
-    console.log("ANALYSIS")
-  });
+export default function AnalysisStackScreen({navigation}: any) {
   return (
-    <Stack.Navigator
+    <AnalysisStack.Navigator
+      initialRouteName="AnalysisIndex"
       screenOptions={{
         title: "주식 분석",
         headerTitleAlign: "center",
@@ -22,10 +20,9 @@ export default function AnalysisStack() {
         },
         headerRight: () => <Flag />
       }}
-      initialRouteName="AnalysisIndex"
     >
-      <Stack.Screen name="AnalysisIndex" component={AnalysisIndexScreen} />
-      <Stack.Screen name="AnalysisDetail" component={AnalysisDetailScreen} />
-    </Stack.Navigator>
+      <AnalysisStack.Screen name="AnalysisIndex" component={AnalysisIndexScreen} />
+      <AnalysisStack.Screen name="AnalysisDetail" component={AnalysisDetailScreen} />
+    </AnalysisStack.Navigator>
   );
 }

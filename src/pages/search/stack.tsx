@@ -4,14 +4,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SearchIndexScreen from '.';
 import Flag from '../../component/layout/app/flag';
 
-const Stack = createStackNavigator();
+const SearchStack = createStackNavigator();
 
-export default function SearchStack() {
-  useEffect(()=> {
-    console.log("SEARCH")
-  });
+export default function SearchStackScreen({navigation}: any) {
   return (
-    <Stack.Navigator
+    <SearchStack.Navigator
+      initialRouteName="SearchIndex"
       screenOptions={{
         title: "주식 검색",
         headerTitleAlign: "center",
@@ -20,9 +18,8 @@ export default function SearchStack() {
         },
         headerRight: () => <Flag />
       }}
-      initialRouteName="SearchIndex"
     >
-      <Stack.Screen name="SearchIndex" component={SearchIndexScreen} />
-    </Stack.Navigator>
+      <SearchStack.Screen name="SearchIndex" component={SearchIndexScreen} />
+    </SearchStack.Navigator>
   );
 }

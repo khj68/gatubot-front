@@ -12,10 +12,17 @@ import Loading from '../component/layout/app/loading';
 import {
   RecoilRoot
 } from 'recoil';
+import Flag from '../component/layout/app/flag';
+import AnalysisStackScreen from './analysis/stack';
+import HelpStackScreen from './help/stack';
+import NewsStackScreen from './news/stack';
+import SearchStackScreen from './search/stack';
+// import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
 DefaultTheme.colors.background = 'white';
 
 const Tab = createBottomTabNavigator();
+// const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
   useEffect( () => {
@@ -36,12 +43,11 @@ export default function App() {
                 justifyContent: 'center'
               },
             }}
-            // lazy={true}
           >
-            <Tab.Screen name="NewsStack" component={NewsStack} options={{title: "뉴스"}} />
-            <Tab.Screen name="AnalysisStack" component={AnalysisStack} options={{title: "분석"}}/>
-            <Tab.Screen name="SearchStack" component={SearchStack} options={{title: "검색"}}/>
-            <Tab.Screen name="HelpStack" component={HelpStack} options={{title: "안내"}}/>
+            <Tab.Screen name="NewsStack" component={NewsStackScreen} options={{title: "뉴스"}} />
+            <Tab.Screen name="AnalysisStack" component={AnalysisStackScreen} options={{title: "분석"}}/>
+            <Tab.Screen name="SearchStack" component={SearchStackScreen} options={{title: "검색"}}/>
+            <Tab.Screen name="HelpStack" component={HelpStackScreen} options={{title: "안내"}}/>
           </Tab.Navigator>
         </NavigationContainer>
       </Suspense>
